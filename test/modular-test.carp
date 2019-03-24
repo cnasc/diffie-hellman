@@ -34,6 +34,13 @@
                 "*mod works as expected II")
   (assert-equal test
                 50
-                (let [f (modular 100 *)]
-                  (f 50 -3))
-                "modular works as expected"))
+                ((modular 100 *) 50 -3)
+                "modular works as expected")
+  (assert-equal test
+                7
+                ((modular 17 +) 13 11)
+                "modular works as expected II")
+  (assert-equal test
+                2
+                ((modular 17 -) 13 11)
+                "modular works as expected III"))
