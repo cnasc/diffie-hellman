@@ -1,0 +1,24 @@
+(use Int)
+
+(defmodule ModularArithmetic
+  (doc +mod "Add a to b, modulo n")
+  (defn +mod
+    [a b n]
+    (positive-mod (+ a b) n))
+
+  (doc -mod "Subtract b from a, modulo n")
+  (defn -mod
+    [a b n]
+    (positive-mod (- a b) n))
+
+  (doc *mod "Divide a by b, modulo n")
+  (defn *mod
+    [a b n]
+    (positive-mod (* a b) n))
+
+  (doc modular "Consume a modulus and an operation, return a function
+  which computes (operation arg1 arg2), modulo n")
+  (defn modular [n op]
+    (fn [a b]
+        (positive-mod (op a b) n)))
+  )

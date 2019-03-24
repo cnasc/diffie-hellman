@@ -1,0 +1,39 @@
+(load "../src/modular.carp")
+(use ModularArithmetic)
+(load "Test.carp")
+(use Test)
+
+(deftest test
+  (assert-equal test
+                4
+                (+mod 7 5 8)
+                "+mod works as expected")
+  (assert-equal test
+                2
+                (+mod 10 10 3)
+                "+mod works as expected II")
+  (assert-equal test
+                98
+                (+mod 99 99 100)
+                "+mod works as expected III")
+  (assert-equal test
+                1
+                (-mod 5 12 2)
+                "-mod works as expected")
+  (assert-equal test
+                1
+                (-mod 12 5 2)
+                "-mod works as expected II")
+  (assert-equal test
+                0
+                (*mod 6 6 9)
+                "*mod works as expected")
+  (assert-equal test
+                50
+                (*mod 50 -3 100)
+                "*mod works as expected II")
+  (assert-equal test
+                50
+                (let [f (modular 100 *)]
+                  (f 50 -3))
+                "modular works as expected"))
