@@ -43,4 +43,24 @@
   (assert-equal test
                 2
                 ((modular 17 -) 13 11)
-                "modular works as expected III"))
+                "modular works as expected III")
+  (assert-equal test
+                1
+                ((exptmod 10) 2 0)
+                "exptmod I")
+  (assert-equal test
+                8
+                ((exptmod 10) 2 3)
+                "exptmod II")
+  (assert-equal test
+                1
+                ((exptmod 10) 3 4)
+                "exptmod III")
+  (assert-equal test
+                68
+                ((exptmod 100) 2 15)
+                "exptmod IV")
+  (assert-equal test
+                75
+                ((exptmod 100) -5 3)
+                "exptmod V"))

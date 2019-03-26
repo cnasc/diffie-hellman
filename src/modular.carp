@@ -20,5 +20,11 @@
   which computes (operation arg1 arg2), modulo n")
   (defn modular [n op]
     (fn [a b]
-        (positive-mod (op a b) n)))
-  )
+      (positive-mod (op a b) n)))
+
+  ;; TODO: Define expotmod in terms of a recursive process using the technique
+  ;; of repeated squaring. To do that, I need to find out how to dynamically
+  ;; create a recursive function.
+  (doc exptmod "Consume a modulus, return a function which computes a^b, modulo n")
+  (defn exptmod [p]
+    (modular p pow)))
